@@ -220,7 +220,7 @@
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="&lt;RandomizerGUI.generalOptionsPanel.border.title&gt;">
               <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.generalOptionsPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-              <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+              <Font PropertyName="font" name="NanumGothic" size="11" style="1"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -313,7 +313,7 @@
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="&lt;RandomizerGUI.romInfoPanel.border.title&gt;">
               <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.romInfoPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-              <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+              <Font PropertyName="font" name="NanumGothic" size="11" style="1"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -494,7 +494,7 @@
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                     <TitledBorder title="&lt;RandomizerGUI.pokemonTypesPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.pokemonTypesPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                      <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+                      <Font PropertyName="font" name="NanumGothic" size="11" style="1"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -603,7 +603,7 @@
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                     <TitledBorder title="&lt;RandomizerGUI.baseStatsPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.baseStatsPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                      <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+                      <Font PropertyName="font" name="NanumGothic" size="11" style="1"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -802,7 +802,7 @@
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                     <TitledBorder title="&lt;RandomizerGUI.abilitiesPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.abilitiesPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                      <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+                      <Font PropertyName="font" name="NanumGothic" size="11" style="1"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -954,7 +954,7 @@
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                     <TitledBorder title="&lt;RandomizerGUI.pokemonEvolutionsPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.pokemonEvolutionsPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                      <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+                      <Font PropertyName="font" name="NanumGothic" size="11" style="1"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -1184,7 +1184,7 @@
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                     <TitledBorder title="&lt;RandomizerGUI.starterPokemonPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.starterPokemonPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                      <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+                      <Font PropertyName="font" name="NanumGothic" size="11" style="1"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -1430,7 +1430,7 @@
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                     <TitledBorder title="&lt;RandomizerGUI.staticPokemonPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.staticPokemonPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                      <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+                      <Font PropertyName="font" name="NanumGothic" size="11" style="1"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -1511,7 +1511,7 @@
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                     <TitledBorder title="&lt;RandomizerGUI.inGameTradesPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.inGameTradesPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                      <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+                      <Font PropertyName="font" name="NanumGothic" size="11" style="1"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -1699,7 +1699,7 @@
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                     <TitledBorder title="&lt;RandomizerGUI.pokemonMovesetsPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.pokemonMovesetsPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                      <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+                      <Font PropertyName="font" name="NanumGothic" size="11" style="1"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -1901,7 +1901,7 @@
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                     <TitledBorder title="&lt;RandomizerGUI.moveDataPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.moveDataPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                      <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+                      <Font PropertyName="font" name="NanumGothic" size="11" style="1"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -2070,7 +2070,7 @@
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                     <TitledBorder title="&lt;RandomizerGUI.trainersPokemonPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.trainersPokemonPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                      <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+                      <Font PropertyName="font" name="NanumGothic" size="11" style="1"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -2369,7 +2369,7 @@
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                     <TitledBorder title="&lt;RandomizerGUI.wildPokemonPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.wildPokemonPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                      <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+                      <Font PropertyName="font" name="NanumGothic" size="11" style="1"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -2767,7 +2767,7 @@
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                     <TitledBorder title="&lt;RandomizerGUI.tmhmsPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.tmhmsPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                      <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+                      <Font PropertyName="font" name="NanumGothic" size="11" style="1"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -3065,7 +3065,7 @@
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                     <TitledBorder title="&lt;RandomizerGUI.moveTutorsPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.moveTutorsPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                      <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+                      <Font PropertyName="font" name="NanumGothic" size="11" style="1"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -3399,7 +3399,7 @@
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                     <TitledBorder title="&lt;RandomizerGUI.fieldItemsPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.fieldItemsPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                      <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+                      <Font PropertyName="font" name="NanumGothic" size="11" style="1"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -3541,7 +3541,7 @@
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                     <TitledBorder title="&lt;RandomizerGUI.miscTweaksPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.miscTweaksPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                      <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+                      <Font PropertyName="font" name="NanumGothic" size="11" style="1"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -3584,7 +3584,7 @@
     <Component class="javax.swing.JLabel" name="versionLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="11" style="1"/>
+          <Font name="NanumGothic" size="11" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
           <ResourceString bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.versionLabel.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>

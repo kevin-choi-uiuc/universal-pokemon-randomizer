@@ -120,14 +120,9 @@ public class RandomizerGUI extends javax.swing.JFrame {
      *            the command line arguments
      */
     public static void main(String args[]) {
-        boolean autoupdate = true;
-        for (String arg : args) {
-            if (arg.equalsIgnoreCase("--noupdate")) {
-                autoupdate = false;
-                break;
-            }
-        }
+        boolean autoupdate = false;
         final boolean au = autoupdate;
+        Locale.setDefault(Locale.KOREA);    
         boolean onWindowsNativeLAF = false;
         try {
             String lafName = javax.swing.UIManager.getSystemLookAndFeelClassName();
@@ -208,10 +203,10 @@ public class RandomizerGUI extends javax.swing.JFrame {
     private void guiCleanup() {
         // All systems: test for font size and adjust if required
         Font f = pokeLimitCB.getFont();
-        if (f == null || !f.getFontName().equalsIgnoreCase("tahoma") || f.getSize() != 11) {
+        if (f == null || !f.getFontName().equalsIgnoreCase("NanumGothic") || f.getSize() != 11) {
             System.out.println("activating font face fix");
-            Font regularFont = new Font("Tahoma", 0, 11);
-            Font boldFont = new Font("monospaced", 0, 11);
+            Font regularFont = new Font("NanumGothic", 0, 11);
+            Font boldFont = new Font("NanumGothic", 0, 11);
             fontFaceFix(this, regularFont, boldFont);
             for (JCheckBox cb : tweakCheckboxes) {
                 cb.setFont(regularFont);
@@ -421,7 +416,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            
+
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1354,7 +1349,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
             this.spUniqueTypesCB.setSelected(false);
             this.spUniqueTypesCB.setEnabled(false);
         }
-        
+
         if (this.pbsChangesUnchangedRB.isSelected()) {
             this.pbsFollowEvolutionsCB.setEnabled(false);
             this.pbsFollowEvolutionsCB.setSelected(false);
@@ -1375,7 +1370,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
             this.spHeldItemsBanBadCB.setEnabled(false);
             this.spHeldItemsBanBadCB.setSelected(false);
         }
-        
+
 
         if (this.spUnchangedRB.isSelected()) {
             this.spNoSplitCB.setEnabled(false);
@@ -1643,7 +1638,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
             this.fiBanBadCB.setEnabled(false);
             this.fiBanBadCB.setSelected(false);
         }
-        
+
         if(this.peRandomRB.isSelected()) {
             this.peForceChangeCB.setEnabled(true);
             this.peThreeStagesCB.setEnabled(true);
@@ -2586,7 +2581,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
     private void fiRandomRBActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_fiRandomRBActionPerformed
         this.enableOrDisableSubControls();
     }// GEN-LAST:event_fiRandomRBActionPerformed
-    
+
     private void spRandom2EvosRBActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_spRandom2EvosRBActionPerformed
         this.enableOrDisableSubControls();
     }// GEN-LAST:event_spRandom2EvosRBActionPerformed
@@ -2623,7 +2618,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
     private void pbsChangesRandomRBActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_pbsChangesRandomRBActionPerformed
         this.enableOrDisableSubControls();
     }// GEN-LAST:event_pbsChangesRandomRBActionPerformed
-    
+
     private void tpForceFullyEvolvedCBActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tpForceFullyEvolvedCBActionPerformed
         this.enableOrDisableSubControls();
     }// GEN-LAST:event_tpForceFullyEvolvedCBActionPerformed
@@ -2647,7 +2642,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
     private void mtForceGoodDamagingCBActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_mtForceGoodDamagingCBActionPerformed
         this.enableOrDisableSubControls();
     }// GEN-LAST:event_mtForceGoodDamagingCBActionPerformed
-    
+
     private void ptUnchangedRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ptUnchangedRBActionPerformed
         this.enableOrDisableSubControls();
     }//GEN-LAST:event_ptUnchangedRBActionPerformed
@@ -2675,7 +2670,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
     private void spRandom1or2EvosRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spRandom1or2EvosRBActionPerformed
         this.enableOrDisableSubControls();
     }//GEN-LAST:event_spRandom1or2EvosRBActionPerformed
-    
+
     private void wpARMatchTypingRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wpARMatchTypingRBActionPerformed
         this.enableOrDisableSubControls();
     }//GEN-LAST:event_wpARMatchTypingRBActionPerformed
@@ -2683,7 +2678,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
     private void pmsGuaranteedMovesCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pmsGuaranteedMovesCBActionPerformed
         this.enableOrDisableSubControls();
     }//GEN-LAST:event_pmsGuaranteedMovesCBActionPerformed
-    
+
     /* @formatter:off */
     /**
      * This method is called from within the constructor to initialize the form.
@@ -2963,7 +2958,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle(bundle.getString("RandomizerGUI.title")); // NOI18N
 
-        generalOptionsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.generalOptionsPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("monospaced", 0, 11))); // NOI18N
+        generalOptionsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.generalOptionsPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("NanumGothic", 0, 11))); // NOI18N
 
         java.util.ResourceBundle bundle1 = java.util.ResourceBundle.getBundle("com/dabomstew/pkrandom/gui/Bundle"); // NOI18N
         pokeLimitCB.setText(bundle1.getString("RandomizerGUI.pokeLimitCB.text")); // NOI18N
@@ -3016,7 +3011,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        romInfoPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.romInfoPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("monospaced", 0, 11))); // NOI18N
+        romInfoPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.romInfoPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("NanumGothic", 0, 11))); // NOI18N
 
         riRomNameLabel.setText(bundle.getString("RandomizerGUI.riRomNameLabel.text")); // NOI18N
 
@@ -3092,7 +3087,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
             }
         });
 
-        pokemonTypesPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.pokemonTypesPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("monospaced", 0, 11))); // NOI18N
+        pokemonTypesPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.pokemonTypesPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("NanumGothic", 0, 11))); // NOI18N
 
         pokeTypesButtonGroup.add(ptUnchangedRB);
         ptUnchangedRB.setSelected(true);
@@ -3154,7 +3149,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        baseStatsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.baseStatsPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("monospaced", 0, 11))); // NOI18N
+        baseStatsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.baseStatsPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("NanumGothic", 0, 11))); // NOI18N
 
         pokeStatChangesButtonGroup.add(pbsChangesUnchangedRB);
         pbsChangesUnchangedRB.setSelected(true);
@@ -3267,7 +3262,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        abilitiesPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.abilitiesPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("monospaced", 0, 11))); // NOI18N
+        abilitiesPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.abilitiesPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("NanumGothic", 0, 11))); // NOI18N
 
         pokeAbilitiesButtonGroup.add(paUnchangedRB);
         paUnchangedRB.setSelected(true);
@@ -3346,7 +3341,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pokemonEvolutionsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.pokemonEvolutionsPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("monospaced", 0, 11))); // NOI18N
+        pokemonEvolutionsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.pokemonEvolutionsPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("NanumGothic", 0, 11))); // NOI18N
 
         pokeEvolutionsButtonGroup.add(peUnchangedRB);
         peUnchangedRB.setSelected(true);
@@ -3474,7 +3469,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
 
         randomizerOptionsPane.addTab(bundle.getString("RandomizerGUI.pokeTraitsPanel.TabConstraints.tabTitle"), pokeTraitsPanel); // NOI18N
 
-        starterPokemonPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.starterPokemonPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("monospaced", 0, 11))); // NOI18N
+        starterPokemonPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.starterPokemonPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("NanumGothic", 0, 11))); // NOI18N
 
         starterPokemonButtonGroup.add(spUnchangedRB);
         spUnchangedRB.setSelected(true);
@@ -3604,7 +3599,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        staticPokemonPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.staticPokemonPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("monospaced", 0, 11))); // NOI18N
+        staticPokemonPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.staticPokemonPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("NanumGothic", 0, 11))); // NOI18N
 
         staticPokemonButtonGroup.add(stpUnchangedRB);
         stpUnchangedRB.setSelected(true);
@@ -3641,7 +3636,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
                 .addComponent(stpRandomTotalRB))
         );
 
-        inGameTradesPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.inGameTradesPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("monospaced", 0, 11))); // NOI18N
+        inGameTradesPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.inGameTradesPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("NanumGothic", 0, 11))); // NOI18N
 
         ingameTradesButtonGroup.add(igtUnchangedRB);
         igtUnchangedRB.setSelected(true);
@@ -3746,7 +3741,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
 
         randomizerOptionsPane.addTab(bundle.getString("RandomizerGUI.startersInnerPanel.TabConstraints.tabTitle"), startersInnerPanel); // NOI18N
 
-        pokemonMovesetsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.pokemonMovesetsPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("monospaced", 0, 11))); // NOI18N
+        pokemonMovesetsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.pokemonMovesetsPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("NanumGothic", 0, 11))); // NOI18N
 
         pokeMovesetsButtonGroup.add(pmsUnchangedRB);
         pmsUnchangedRB.setSelected(true);
@@ -3870,7 +3865,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
                         .addGap(0, 6, Short.MAX_VALUE))))
         );
 
-        moveDataPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.moveDataPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("monospaced", 0, 11))); // NOI18N
+        moveDataPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.moveDataPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("NanumGothic", 0, 11))); // NOI18N
 
         mdRandomPowerCB.setText(bundle.getString("RandomizerGUI.mdRandomPowerCB.text")); // NOI18N
         mdRandomPowerCB.setToolTipText(bundle.getString("RandomizerGUI.mdRandomPowerCB.toolTipText")); // NOI18N
@@ -3960,7 +3955,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
 
         randomizerOptionsPane.addTab(bundle.getString("RandomizerGUI.movesAndSetsPanel.TabConstraints.tabTitle"), movesAndSetsPanel); // NOI18N
 
-        trainersPokemonPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.trainersPokemonPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("monospaced", 0, 11))); // NOI18N
+        trainersPokemonPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.trainersPokemonPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("NanumGothic", 0, 11))); // NOI18N
 
         trainerPokesButtonGroup.add(tpUnchangedRB);
         tpUnchangedRB.setSelected(true);
@@ -4129,7 +4124,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
 
         randomizerOptionsPane.addTab(bundle.getString("RandomizerGUI.trainersInnerPanel.TabConstraints.tabTitle"), trainersInnerPanel); // NOI18N
 
-        wildPokemonPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.wildPokemonPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("monospaced", 0, 11))); // NOI18N
+        wildPokemonPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.wildPokemonPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("NanumGothic", 0, 11))); // NOI18N
 
         wildPokesButtonGroup.add(wpUnchangedRB);
         wpUnchangedRB.setSelected(true);
@@ -4362,7 +4357,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
 
         randomizerOptionsPane.addTab(bundle.getString("RandomizerGUI.wildsInnerPanel.TabConstraints.tabTitle"), wildsInnerPanel); // NOI18N
 
-        tmhmsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.tmhmsPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("monospaced", 0, 11))); // NOI18N
+        tmhmsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.tmhmsPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("NanumGothic", 0, 11))); // NOI18N
 
         tmMovesPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(bundle.getString("RandomizerGUI.tmMovesPanel.border.title"))); // NOI18N
 
@@ -4534,7 +4529,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        moveTutorsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.moveTutorsPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("monospaced", 0, 11))); // NOI18N
+        moveTutorsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.moveTutorsPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("NanumGothic", 0, 11))); // NOI18N
 
         mtMovesPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(bundle.getString("RandomizerGUI.mtMovesPanel.border.title"))); // NOI18N
 
@@ -4731,7 +4726,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
 
         randomizerOptionsPane.addTab(bundle.getString("RandomizerGUI.tmHmTutorPanel.TabConstraints.tabTitle"), tmHmTutorPanel); // NOI18N
 
-        fieldItemsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.fieldItemsPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("monospaced", 0, 11))); // NOI18N
+        fieldItemsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.fieldItemsPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("NanumGothic", 0, 11))); // NOI18N
 
         fieldItemsButtonGroup.add(fiUnchangedRB);
         fiUnchangedRB.setSelected(true);
@@ -4811,7 +4806,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
 
         randomizerOptionsPane.addTab(bundle.getString("RandomizerGUI.fieldItemsInnerPanel.TabConstraints.tabTitle"), fieldItemsInnerPanel); // NOI18N
 
-        miscTweaksPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.miscTweaksPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("monospaced", 0, 11))); // NOI18N
+        miscTweaksPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("RandomizerGUI.miscTweaksPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("NanumGothic", 0, 11))); // NOI18N
 
         mtNoneAvailableLabel.setText(bundle.getString("RandomizerGUI.mtNoneAvailableLabel.text")); // NOI18N
 
@@ -4851,7 +4846,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
 
         randomizerOptionsPane.addTab(bundle.getString("RandomizerGUI.miscTweaksInnerPanel.TabConstraints.tabTitle"), miscTweaksInnerPanel); // NOI18N
 
-        versionLabel.setFont(new java.awt.Font("monospaced", 0, 11)); // NOI18N
+        versionLabel.setFont(new java.awt.Font("NanumGothic", 0, 11)); // NOI18N
         versionLabel.setText(bundle.getString("RandomizerGUI.versionLabel.text")); // NOI18N
 
         websiteLinkLabel.setText(bundle.getString("RandomizerGUI.websiteLinkLabel.text")); // NOI18N

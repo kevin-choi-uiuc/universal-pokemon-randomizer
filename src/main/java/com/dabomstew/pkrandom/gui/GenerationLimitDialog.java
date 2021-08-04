@@ -146,7 +146,7 @@ public class GenerationLimitDialog extends javax.swing.JDialog {
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("com/dabomstew/pkrandom/gui/Bundle"); // NOI18N
         setTitle(bundle.getString("GenerationLimitDialog.title")); // NOI18N
 
-        includePokemonHeader.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        includePokemonHeader.setFont(new java.awt.Font("NanumGothic", 1, 11)); // NOI18N
         includePokemonHeader.setText(bundle.getString("GenerationLimitDialog.includePokemonHeader.text")); // NOI18N
 
         gen1CB.setText(bundle.getString("GenerationLimitDialog.gen1CB.text")); // NOI18N
@@ -184,7 +184,7 @@ public class GenerationLimitDialog extends javax.swing.JDialog {
             }
         });
 
-        relatedPokemonHeader.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        relatedPokemonHeader.setFont(new java.awt.Font("NanumGothic", 1, 11)); // NOI18N
         relatedPokemonHeader.setText(bundle.getString("GenerationLimitDialog.relatedPokemonHeader.text")); // NOI18N
 
         g1Rg2CB.setText(bundle.getString("GenerationLimitDialog.gen2Short")); // NOI18N
@@ -221,7 +221,7 @@ public class GenerationLimitDialog extends javax.swing.JDialog {
             }
         });
 
-        warningRomHackLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        warningRomHackLabel.setFont(new java.awt.Font("NanumGothic", 1, 11)); // NOI18N
         warningRomHackLabel.setForeground(new java.awt.Color(255, 0, 0));
         warningRomHackLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         warningRomHackLabel.setText(bundle.getString("GenerationLimitDialog.warningRomHackLabel.text")); // NOI18N

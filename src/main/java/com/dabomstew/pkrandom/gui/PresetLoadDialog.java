@@ -407,7 +407,7 @@ public class PresetLoadDialog extends javax.swing.JDialog {
             }
         });
 
-        orLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        orLabel.setFont(new java.awt.Font("NanumGothic", 1, 11)); // NOI18N
         orLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         orLabel.setText(bundle.getString("PresetLoadDialog.orLabel.text")); // NOI18N
 

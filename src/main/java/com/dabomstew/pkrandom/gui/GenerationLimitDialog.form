@@ -139,7 +139,7 @@
     <Component class="javax.swing.JLabel" name="includePokemonHeader">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="11" style="1"/>
+          <Font name="NanumGothic" size="11" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
           <ResourceString bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="GenerationLimitDialog.includePokemonHeader.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
@@ -199,7 +199,7 @@
     <Component class="javax.swing.JLabel" name="relatedPokemonHeader">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="11" style="1"/>
+          <Font name="NanumGothic" size="11" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
           <ResourceString bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="GenerationLimitDialog.relatedPokemonHeader.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
@@ -299,7 +299,7 @@
     <Component class="javax.swing.JLabel" name="warningRomHackLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="11" style="1"/>
+          <Font name="NanumGothic" size="11" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="ff" type="rgb"/>
