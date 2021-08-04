@@ -157,7 +157,7 @@
                       </Group>
                       <EmptySpace min="28" pref="28" max="-2" attributes="0"/>
                       <Component id="gameMascotLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" pref="37" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" pref="63" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="openROMButton" alignment="1" min="-2" pref="159" max="-2" attributes="0"/>
                           <Component id="saveROMButton" alignment="1" min="-2" pref="159" max="-2" attributes="0"/>
@@ -218,7 +218,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="General Options">
+            <TitledBorder title="&lt;RandomizerGUI.generalOptionsPanel.border.title&gt;">
               <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.generalOptionsPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
               <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
             </TitledBorder>
@@ -265,7 +265,7 @@
         <Component class="javax.swing.JCheckBox" name="pokeLimitCB">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.pokeLimitCB.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.pokeLimitCB.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
               <ResourceString bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.pokeLimitCB.toolTipText" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
@@ -311,7 +311,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="ROM Information">
+            <TitledBorder title="&lt;RandomizerGUI.romInfoPanel.border.title&gt;">
               <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.romInfoPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
               <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
             </TitledBorder>
@@ -325,7 +325,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="riRomNameLabel" pref="170" max="32767" attributes="0"/>
+                      <Component id="riRomNameLabel" max="32767" attributes="0"/>
                       <Component id="riRomCodeLabel" max="32767" attributes="0"/>
                       <Component id="riRomSupportLabel" alignment="0" max="32767" attributes="0"/>
                   </Group>
@@ -444,7 +444,7 @@
         <Container class="javax.swing.JPanel" name="pokeTraitsPanel">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Pokemon Traits">
+              <JTabbedPaneConstraints tabName="&lt;RandomizerGUI.pokeTraitsPanel.TabConstraints.tabTitle&gt;">
                 <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.pokeTraitsPanel.TabConstraints.tabTitle" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                 </Property>
@@ -492,7 +492,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Pokemon Types">
+                    <TitledBorder title="&lt;RandomizerGUI.pokemonTypesPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.pokemonTypesPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                       <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                     </TitledBorder>
@@ -601,7 +601,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Pokemon Base Statistics">
+                    <TitledBorder title="&lt;RandomizerGUI.baseStatsPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.baseStatsPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                       <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                     </TitledBorder>
@@ -800,7 +800,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Pokemon Abilities">
+                    <TitledBorder title="&lt;RandomizerGUI.abilitiesPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.abilitiesPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                       <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                     </TitledBorder>
@@ -952,7 +952,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Pokemon Evolutions">
+                    <TitledBorder title="&lt;RandomizerGUI.pokemonEvolutionsPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.pokemonEvolutionsPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                       <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                     </TitledBorder>
@@ -1141,7 +1141,7 @@
         <Container class="javax.swing.JPanel" name="startersInnerPanel">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Starters, Statics &amp; Trades">
+              <JTabbedPaneConstraints tabName="&lt;RandomizerGUI.startersInnerPanel.TabConstraints.tabTitle&gt;">
                 <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.startersInnerPanel.TabConstraints.tabTitle" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                 </Property>
@@ -1182,7 +1182,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Starter Pokemon">
+                    <TitledBorder title="&lt;RandomizerGUI.starterPokemonPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.starterPokemonPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                       <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                     </TitledBorder>
@@ -1428,7 +1428,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Static Pokemon">
+                    <TitledBorder title="&lt;RandomizerGUI.staticPokemonPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.staticPokemonPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                       <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                     </TitledBorder>
@@ -1509,7 +1509,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="In-Game Trades">
+                    <TitledBorder title="&lt;RandomizerGUI.inGameTradesPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.inGameTradesPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                       <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                     </TitledBorder>
@@ -1659,7 +1659,7 @@
         <Container class="javax.swing.JPanel" name="movesAndSetsPanel">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Moves &amp; Movesets">
+              <JTabbedPaneConstraints tabName="&lt;RandomizerGUI.movesAndSetsPanel.TabConstraints.tabTitle&gt;">
                 <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.movesAndSetsPanel.TabConstraints.tabTitle" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                 </Property>
@@ -1697,7 +1697,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Pokemon Movesets">
+                    <TitledBorder title="&lt;RandomizerGUI.pokemonMovesetsPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.pokemonMovesetsPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                       <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                     </TitledBorder>
@@ -1899,7 +1899,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Move Data">
+                    <TitledBorder title="&lt;RandomizerGUI.moveDataPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.moveDataPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                       <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                     </TitledBorder>
@@ -2035,7 +2035,7 @@
         <Container class="javax.swing.JPanel" name="trainersInnerPanel">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Trainer Pokemon">
+              <JTabbedPaneConstraints tabName="&lt;RandomizerGUI.trainersInnerPanel.TabConstraints.tabTitle&gt;">
                 <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.trainersInnerPanel.TabConstraints.tabTitle" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                 </Property>
@@ -2068,7 +2068,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Trainers Pokemon">
+                    <TitledBorder title="&lt;RandomizerGUI.trainersPokemonPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.trainersPokemonPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                       <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                     </TitledBorder>
@@ -2334,7 +2334,7 @@
         <Container class="javax.swing.JPanel" name="wildsInnerPanel">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Wild Pokemon">
+              <JTabbedPaneConstraints tabName="&lt;RandomizerGUI.wildsInnerPanel.TabConstraints.tabTitle&gt;">
                 <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.wildsInnerPanel.TabConstraints.tabTitle" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                 </Property>
@@ -2367,7 +2367,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Wild Pokemon">
+                    <TitledBorder title="&lt;RandomizerGUI.wildPokemonPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.wildPokemonPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                       <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                     </TitledBorder>
@@ -2516,7 +2516,7 @@
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder title="Additional Rule">
+                        <TitledBorder title="&lt;RandomizerGUI.wildPokemonARulePanel.border.title&gt;">
                           <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.wildPokemonARulePanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                         </TitledBorder>
                       </Border>
@@ -2727,7 +2727,7 @@
         <Container class="javax.swing.JPanel" name="tmHmTutorPanel">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="TM/HMs &amp; Tutors">
+              <JTabbedPaneConstraints tabName="&lt;RandomizerGUI.tmHmTutorPanel.TabConstraints.tabTitle&gt;">
                 <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.tmHmTutorPanel.TabConstraints.tabTitle" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                 </Property>
@@ -2752,7 +2752,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="tmhmsPanel" min="-2" pref="201" max="-2" attributes="0"/>
+                      <Component id="tmhmsPanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="moveTutorsPanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
@@ -2765,7 +2765,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="TMs &amp; HMs">
+                    <TitledBorder title="&lt;RandomizerGUI.tmhmsPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.tmhmsPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                       <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                     </TitledBorder>
@@ -2788,7 +2788,7 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="12" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="tmMovesPanel" max="32767" attributes="0"/>
                               <Component id="tmHmCompatPanel" max="32767" attributes="0"/>
@@ -2803,7 +2803,7 @@
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder title="TM Moves">
+                        <TitledBorder title="&lt;RandomizerGUI.tmMovesPanel.border.title&gt;">
                           <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.tmMovesPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                         </TitledBorder>
                       </Border>
@@ -2951,7 +2951,7 @@
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder title="TM/HM Compatibility">
+                        <TitledBorder title="&lt;RandomizerGUI.tmHmCompatPanel.border.title&gt;">
                           <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.tmHmCompatPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                         </TitledBorder>
                       </Border>
@@ -3063,7 +3063,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Move Tutors">
+                    <TitledBorder title="&lt;RandomizerGUI.moveTutorsPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.moveTutorsPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                       <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                     </TitledBorder>
@@ -3109,7 +3109,7 @@
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder title="Move Tutor Moves">
+                        <TitledBorder title="&lt;RandomizerGUI.mtMovesPanel.border.title&gt;">
                           <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.mtMovesPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                         </TitledBorder>
                       </Border>
@@ -3244,7 +3244,7 @@
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder title="Move Tutor Compatibility">
+                        <TitledBorder title="&lt;RandomizerGUI.mtCompatPanel.border.title&gt;">
                           <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.mtCompatPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                         </TitledBorder>
                       </Border>
@@ -3364,7 +3364,7 @@
         <Container class="javax.swing.JPanel" name="fieldItemsInnerPanel">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Field Items">
+              <JTabbedPaneConstraints tabName="&lt;RandomizerGUI.fieldItemsInnerPanel.TabConstraints.tabTitle&gt;">
                 <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.fieldItemsInnerPanel.TabConstraints.tabTitle" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                 </Property>
@@ -3397,7 +3397,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Field Items">
+                    <TitledBorder title="&lt;RandomizerGUI.fieldItemsPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.fieldItemsPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                       <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                     </TitledBorder>
@@ -3506,7 +3506,7 @@
         <Container class="javax.swing.JPanel" name="miscTweaksInnerPanel">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Misc Tweaks">
+              <JTabbedPaneConstraints tabName="&lt;RandomizerGUI.miscTweaksInnerPanel.TabConstraints.tabTitle&gt;">
                 <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.miscTweaksInnerPanel.TabConstraints.tabTitle" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                 </Property>
@@ -3539,7 +3539,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Misc. Tweaks">
+                    <TitledBorder title="&lt;RandomizerGUI.miscTweaksPanel.border.title&gt;">
                       <ResourceString PropertyName="titleX" bundle="main/java/com/dabomstew/pkrandom/gui/Bundle.properties" key="RandomizerGUI.miscTweaksPanel.border.title" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                       <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                     </TitledBorder>

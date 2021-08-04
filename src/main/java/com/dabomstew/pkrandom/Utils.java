@@ -34,8 +34,9 @@ import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.nio.ByteBuffer;
 import java.util.zip.CRC32;
+import java.util.Base64;
 
-import javax.xml.bind.DatatypeConverter;
+//import javax.xml.bind.DatatypeConverter;
 
 import com.dabomstew.pkrandom.exceptions.InvalidSupplementFilesException;
 import com.dabomstew.pkrandom.gui.RandomizerGUI;
@@ -89,7 +90,7 @@ public class Utils {
 
     public static void validatePresetSupplementFiles(String config, CustomNamesSet customNames)
             throws UnsupportedEncodingException, InvalidSupplementFilesException {
-        byte[] data = DatatypeConverter.parseBase64Binary(config);
+        byte[] data = Base64.getDecoder().decode(config);
 
         if (data.length < Settings.LENGTH_OF_SETTINGS_DATA + 9) {
             throw new InvalidSupplementFilesException(InvalidSupplementFilesException.Type.UNKNOWN,

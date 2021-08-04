@@ -27,10 +27,11 @@ package com.dabomstew.pkrandom;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Locale;
 
 public class MiscTweak implements Comparable<MiscTweak> {
 
-    private static final ResourceBundle bundle = ResourceBundle.getBundle("com/dabomstew/pkrandom/gui/Bundle");
+    private static final ResourceBundle bundle = ResourceBundle.getBundle("com/dabomstew/pkrandom/gui/Bundle", Locale.KOREA);
 
     public static List<MiscTweak> allTweaks = new ArrayList<MiscTweak>();
 

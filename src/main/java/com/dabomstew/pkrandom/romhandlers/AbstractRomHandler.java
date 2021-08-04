@@ -1517,7 +1517,7 @@ public abstract class AbstractRomHandler implements RomHandler {
 
     @Override
     public void printMoveUpdates() {
-        log("<h2>Move Updates</h2>");
+        log("<h2>기술 업데이트</h2>");
         log("<ul>");
         List<Move> moves = this.getMoves();
         for (int moveID : moveUpdates.keySet()) {
@@ -1525,28 +1525,28 @@ public abstract class AbstractRomHandler implements RomHandler {
             Move mv = moves.get(moveID);
             List<String> nonTypeChanges = new ArrayList<String>();
             if (changes[0]) {
-                nonTypeChanges.add(String.format("<strong>%d power</strong>", mv.power));
+                nonTypeChanges.add(String.format("<strong>%d 위력</strong>", mv.power));
             }
             if (changes[1]) {
                 nonTypeChanges.add(String.format("<strong>%d PP</strong>", mv.pp));
             }
             if (changes[2]) {
-                nonTypeChanges.add(String.format("<strong>%.00f%% accuracy</strong>", mv.hitratio));
+                nonTypeChanges.add(String.format("<strong>%.00f%% 정확도</strong>", mv.hitratio));
             }
-            String logStr = String.format("Made <strong>%s</strong>", mv.name);
+            String logStr = String.format("<strong>%s</strong>", mv.name);
             // type or not?
             if (changes[3]) {
-                logStr += String.format(" be <strong>%s-type</strong>", mv.type.toString());
+                logStr += String.format(" 은(는) <strong>%s 타입으로</strong>", mv.type.toString());
                 if (nonTypeChanges.size() > 0) {
-                    logStr += " and";
+                    logStr += " 와(과)";
                 }
             }
                 if (nonTypeChanges.size() > 0) {
-                logStr += " have ";
+                logStr += " 보유 ";
                 if (nonTypeChanges.size() == 3) {
-                    logStr += nonTypeChanges.get(0) + ", " + nonTypeChanges.get(1) + " and " + nonTypeChanges.get(2);
+                    logStr += nonTypeChanges.get(0) + ", " + nonTypeChanges.get(1) + " 와(과) " + nonTypeChanges.get(2);
                 } else if (nonTypeChanges.size() == 2) {
-                    logStr += nonTypeChanges.get(0) + " and " + nonTypeChanges.get(1);
+                    logStr += nonTypeChanges.get(0) + " 와(과) " + nonTypeChanges.get(1);
                 } else {
                     logStr += nonTypeChanges.get(0);
                 }
@@ -2703,9 +2703,9 @@ public abstract class AbstractRomHandler implements RomHandler {
                 }
             }
         // Log changes now that we're done (to avoid repeats)
-        log("<H2>Condensed Level Evolutions</h2><ul>");
+        log("<H2>쉬운 레벨업</h2><ul>");
         for (Evolution evol : changedEvos) {
-            log(String.format("<li><strong>%s</strong> now evolves into <strong>%s</strong> at minimum level <strong>%d</strong></li>", evol.from.name, evol.to.name,
+            log(String.format("<li><strong>%s</strong> 은(는) 이제 <strong>%s</strong> 로 진화: 최소 레벨 <strong>%d</strong> 도달시</li>", evol.from.name, evol.to.name,
                     evol.extraInfo));
         }
         log("</ul>");
@@ -3583,28 +3583,28 @@ public abstract class AbstractRomHandler implements RomHandler {
 
     protected void logEvoChangeLevel(String pkFrom, String pkTo, int level) {
         if (logStream != null) {
-            logStream.printf("<li>Made <strong>%s</strong> evolve into <strong>%s</strong> at level <strong>%d</strong></li>", pkFrom, pkTo, level);
+            logStream.printf("<li><strong>%s</strong> 은(는) 이제 <strong>%s</strong> (으)로 진화: 최소 레벨 <strong>%d</strong> 도달시</li>", pkFrom, pkTo, level);
             logStream.println();
             }
         }
 
     protected void logEvoChangeLevelWithItem(String pkFrom, String pkTo, String itemName) {
         if (logStream != null) {
-            logStream.printf("<li>Made <strong>%s</strong> evolve into <strong>%s</strong> by leveling up holding <strong>%s</strong></li>", pkFrom, pkTo, itemName);
+            logStream.printf("<li><strong>%s</strong> 은(는) 이제 <strong>%s</strong> (으)로 진화: <strong>%s</strong> 보유 후 레벨업</li>", pkFrom, pkTo, itemName);
             logStream.println();
             }
         }
 
     protected void logEvoChangeStone(String pkFrom, String pkTo, String itemName) {
         if (logStream != null) {
-            logStream.printf("<li>Made <strong>%s</strong> evolve into <strong>%s</strong> using a <strong>%s</strong></li>", pkFrom, pkTo, itemName);
+            logStream.printf("<li><strong>%s</strong> 은(는) 이제 <strong>%s</strong> (으)로 진화: <strong>%s</strong></li> 사용", pkFrom, pkTo, itemName);
             logStream.println();
         }
         }
 
     protected void logEvoChangeLevelWithPkmn(String pkFrom, String pkTo, String otherRequired) {
         if (logStream != null) {
-            logStream.printf("<li>Made <strong>%s</strong> evolve into <strong>%s</strong> by leveling up with <strong>%s</strong> in the party</li>", pkFrom, pkTo, otherRequired);
+            logStream.printf("<li><strong>%s</strong> 은(는) 이제 <strong>%s</strong> (으)로 진화: 파티내에 <strong>%s</strong> 보유 후 레벨업</li>", pkFrom, pkTo, otherRequired);
             logStream.println();
             }
         }

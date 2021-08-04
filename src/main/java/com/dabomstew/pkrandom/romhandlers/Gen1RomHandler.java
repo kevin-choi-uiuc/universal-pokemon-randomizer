@@ -1412,7 +1412,7 @@ public class Gen1RomHandler extends AbstractGBCRomHandler {
     public void removeTradeEvolutions(boolean changeMoveEvos) {
         // Gen 1: only regular trade evos
         // change them all to evolve at level 37
-        log("<h2>Removing Trade Evolutions</h2><ul>");
+        log("<h2>교환 진화 제거</h2><ul>");
         for (Pokemon pkmn : pokes) {
             if (pkmn != null) {
                 for (Evolution evo : pkmn.evolutionsFrom) {

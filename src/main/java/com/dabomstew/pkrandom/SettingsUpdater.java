@@ -28,8 +28,9 @@ package com.dabomstew.pkrandom;
 
 import java.nio.ByteBuffer;
 import java.util.zip.CRC32;
+import java.util.Base64;
 
-import javax.xml.bind.DatatypeConverter;
+//import javax.xml.bind.DatatypeConverter;
 
 public class SettingsUpdater {
 
@@ -47,7 +48,7 @@ public class SettingsUpdater {
      * @return The updated config string to be applied
      */
     public String update(int oldVersion, String configString) {
-        byte[] data = DatatypeConverter.parseBase64Binary(configString);
+        byte[] data = Base64.getDecoder().decode(configString);
         this.dataBlock = new byte[200];
         this.actualDataLength = data.length;
         System.arraycopy(data, 0, this.dataBlock, 0, this.actualDataLength);
@@ -257,7 +258,7 @@ public class SettingsUpdater {
         // have to make a new byte array to convert to base64
         byte[] finalConfigString = new byte[actualDataLength];
         System.arraycopy(dataBlock, 0, finalConfigString, 0, actualDataLength);
-        return DatatypeConverter.printBase64Binary(finalConfigString);
+        return Base64.getEncoder().encodeToString(finalConfigString);
     }
 
     private static byte getRemappedByte(byte old, int[] oldIndexes) {
