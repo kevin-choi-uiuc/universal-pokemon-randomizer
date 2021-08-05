@@ -2705,13 +2705,42 @@ public abstract class AbstractRomHandler implements RomHandler {
         // Log changes now that we're done (to avoid repeats)
         log("<H2>쉬운 레벨업</h2><ul>");
         for (Evolution evol : changedEvos) {
-            log(String.format("<li><strong>%s</strong> 은(는) 이제 <strong>%s</strong> 로 진화: 최소 레벨 <strong>%d</strong> 도달시</li>", evol.from.name, evol.to.name,
+            log(String.format("<li><strong>%s</strong> 은(는) 이제 <strong>%s</strong> (으)로 진화: 최소 레벨 <strong>%d</strong> 도달시</li>", evol.from.name, evol.to.name,
                     evol.extraInfo));
         }
         log("</ul>");
         logBlankLine();
 
+    }
+
+    @Override
+    public void everyLevelEvolution() {
+        List<Pokemon> allPokemon = this.getPokemon();
+        Set<Evolution> changedEvos = new TreeSet<Evolution>();
+        // search for level evolutions
+        for (Pokemon pk : allPokemon) {
+            if (pk != null) {
+                for (Evolution checkEvo : pk.evolutionsFrom) {
+                    if (checkEvo.type != EvolutionType.LEVEL) {
+                        checkEvo.type = EvolutionType.LEVEL;
+                    }
+                    if (checkEvo.extraInfo > 1) {
+                        checkEvo.extraInfo = 1;
+                        changedEvos.add(checkEvo);
+                    }
+                }
+            }
         }
+        // Log changes now that we're done (to avoid repeats)
+        log("<H2>1렙 진화</h2><ul>");
+        for (Evolution evol : changedEvos) {
+            log(String.format("<li><strong>%s</strong> 은(는) 이제 <strong>%s</strong> (으)로 <strong>%d</strong>렙 진화</li>", evol.from.name, evol.to.name,
+                    evol.extraInfo));
+        }
+        log("</ul>");
+        logBlankLine();
+
+    }
 
     @Override
     public void randomizeEvolutions(boolean similarStrength, boolean sameType, boolean limitToThreeStages,
@@ -2919,6 +2948,208 @@ public abstract class AbstractRomHandler implements RomHandler {
     }
 
     @Override
+    public void randomizeEvolutionsAll(boolean similarStrength, boolean sameType, boolean limitToThreeStages,
+                                    boolean forceChange, boolean noConverge, boolean forceGrowth) {
+        checkPokemonRestrictions();
+        List<Pokemon> pokemonPool = new ArrayList<Pokemon>(mainPokemonList);
+        int stageLimit = limitToThreeStages ? 3 : 10;
+
+        // Cache old evolutions for data later
+        Map<Pokemon, List<Evolution>> originalEvos = new HashMap<Pokemon, List<Evolution>>();
+        for (Pokemon pk : pokemonPool) {
+            originalEvos.put(pk, new ArrayList<Evolution>(pk.evolutionsFrom));
+        }
+
+        Set<EvolutionPair> newEvoPairs = new HashSet<EvolutionPair>();
+        Set<EvolutionPair> oldEvoPairs = new HashSet<EvolutionPair>();
+
+        if (forceChange) {
+            for (Pokemon pk : pokemonPool) {
+                for (Evolution ev : pk.evolutionsFrom) {
+                    oldEvoPairs.add(new EvolutionPair(ev.from, ev.to));
+                }
+            }
+        }
+
+        List<Pokemon> replacements = new ArrayList<Pokemon>();
+
+        int loops = 0;
+        while (loops < 1) {
+            // Setup for this loop.
+            boolean hadError = false;
+            for (Pokemon pk : pokemonPool) {
+                pk.evolutionsFrom.clear();
+                pk.evolutionsTo.clear();
+            }
+            newEvoPairs.clear();
+
+            // Shuffle pokemon list so the results aren't overly predictable.
+            Collections.shuffle(pokemonPool, this.random);
+
+            for (Pokemon fromPK : pokemonPool) {
+                List<Evolution> oldEvos = originalEvos.get(fromPK);
+                if (oldEvos.size() == 0) {
+                    continue;
+                }
+                Evolution ev = oldEvos.get(0);
+                // Pick a Pokemon as replacement
+                replacements.clear();
+
+                // Step 1: base filters
+                for (Pokemon pk : mainPokemonList) {
+                    // Prevent evolving into oneself (mandatory)
+                    if (pk == fromPK) {
+                        continue;
+                    }
+
+                    // Force same EXP curve (mandatory)
+                    if (pk.growthCurve != fromPK.growthCurve) {
+                        continue;
+                    }
+
+                    EvolutionPair ep = new EvolutionPair(fromPK, pk);
+                    // Prevent split evos choosing the same Pokemon
+                    // (mandatory)
+                    if (newEvoPairs.contains(ep)) {
+                        continue;
+                    }
+
+                    // Prevent evolving into old thing if flagged
+                    if (forceChange && oldEvoPairs.contains(ep)) {
+                        continue;
+                    }
+
+                    // Prevent evolution that causes cycle (mandatory)
+                    if (evoCycleCheck(fromPK, pk)) {
+                        continue;
+                    }
+
+                    // Prevent evolution that exceeds stage limit
+                    Evolution tempEvo = new Evolution(fromPK, pk, false, EvolutionType.NONE, 0);
+                    fromPK.evolutionsFrom.add(tempEvo);
+                    pk.evolutionsTo.add(tempEvo);
+                    boolean exceededLimit = false;
+
+                    Set<Pokemon> related = relatedPokemon(fromPK);
+
+                    for (Pokemon pk2 : related) {
+                        int numPreEvos = numPreEvolutions(pk2, stageLimit);
+                        if (numPreEvos >= stageLimit) {
+                            exceededLimit = true;
+                            break;
+                        } else if (numPreEvos == stageLimit - 1 && pk2.evolutionsFrom.size() == 0
+                                && originalEvos.get(pk2).size() > 0) {
+                            exceededLimit = true;
+                            break;
+                        }
+                    }
+
+                    fromPK.evolutionsFrom.remove(tempEvo);
+                    pk.evolutionsTo.remove(tempEvo);
+
+                    if (exceededLimit) {
+                        continue;
+                    }
+
+                    boolean alreadyUsed = false;
+                    // Prevent evolution to already used newEvo
+                    if (noConverge) {
+                        for (EvolutionPair newEvoPair : newEvoPairs) {
+                            if (pk == newEvoPair.to) {
+                                alreadyUsed = true;
+                            }
+                        }
+                    }
+
+                    if (alreadyUsed) {
+                        continue;
+                    }
+
+                    // Prevent stat total from decreasing
+                    if (forceGrowth && pk.bstForPowerLevels() < fromPK.bstForPowerLevels()) {
+                        continue;
+                    }
+
+                    // Passes everything, add as a candidate.
+                    replacements.add(pk);
+                }
+
+                // If we don't have any candidates after Step 1, severe
+                // failure
+                // exit out of this loop and try again from scratch
+                if (replacements.size() == 0) {
+                    hadError = true;
+                    break;
+                }
+
+                // Step 2: filter by type, if needed
+                if (replacements.size() > 1 && sameType) {
+                    Set<Pokemon> includeType = new HashSet<Pokemon>();
+                    for (Pokemon pk : replacements) {
+                        switch(fromPK.number) {
+                            // Special case for Eevee
+                            case 133:
+                                if (fromPK.number == 133) {
+                                    if (pk.primaryType == ev.to.primaryType
+                                            || (pk.secondaryType != null) && pk.secondaryType == ev.to.primaryType) {
+                                        includeType.add(pk);
+                                    }
+                                }
+                                break;
+                            default:
+                                if (pk.primaryType == fromPK.primaryType
+                                        || (fromPK.secondaryType != null && pk.primaryType == fromPK.secondaryType)
+                                        || (pk.secondaryType != null && pk.secondaryType == fromPK.primaryType)
+                                        || (fromPK.secondaryType != null && pk.secondaryType != null && pk.secondaryType == fromPK.secondaryType)) {
+                                    includeType.add(pk);
+                                } //end if
+                        } //end switch
+                    } //end for
+
+                    if (includeType.size() != 0) {
+                        replacements.retainAll(includeType);
+                    }
+                }
+
+                if (!alreadyPicked.containsAll(replacements) && !similarStrength) {
+                    replacements.removeAll(alreadyPicked);
+                }
+
+                // Step 3: pick - by similar strength or otherwise
+                Pokemon picked = null;
+
+                if (replacements.size() == 1) {
+                    // Foregone conclusion.
+                    picked = replacements.get(0);
+                    alreadyPicked.add(picked);
+                } else if (similarStrength) {
+                    picked = pickEvoPowerLvlReplacement(replacements, ev.to);
+                    alreadyPicked.add(picked);
+                } else {
+                    picked = replacements.get(this.random.nextInt(replacements.size()));
+                    alreadyPicked.add(picked);
+                }
+
+                // Step 4: add it to the new evos pool
+                Evolution newEvo = new Evolution(fromPK, picked, ev.carryStats, ev.type, ev.extraInfo);
+                fromPK.evolutionsFrom.add(newEvo);
+                picked.evolutionsTo.add(newEvo);
+                newEvoPairs.add(new EvolutionPair(fromPK, picked));
+            }
+
+            // If no error, done and return
+            if (!hadError) {
+                return;
+            } else {
+                loops++;
+            }
+        }
+
+        // If we made it out of the loop, we weren't able to randomize evos.
+        throw new RandomizationException("Not able to randomize evolutions in a sane amount of retries.");
+    }
+
+    @Override
     public void minimumCatchRate(int rateNonLegendary, int rateLegendary) {
         List<Pokemon> pokes = getPokemon();
         for (Pokemon pkmn : pokes) {
@@ -2941,6 +3172,18 @@ public abstract class AbstractRomHandler implements RomHandler {
             pkmn.growthCurve = pkmn.isLegendary() ? ExpCurve.SLOW : ExpCurve.MEDIUM_FAST;
             }
         }
+
+    // 1.8.0.2
+    @Override
+    public void standardizeEXPCurvesAll() {
+        List<Pokemon> pokes = getPokemon();
+        for (Pokemon pkmn : pokes) {
+            if (pkmn == null) {
+                continue;
+            }
+            pkmn.growthCurve = ExpCurve.MEDIUM_FAST;
+        }
+    }
 
     /* Private methods/structs used internally by the above methods */
     private void updateMovePower(List<Move> moves, int moveNum, int power) {

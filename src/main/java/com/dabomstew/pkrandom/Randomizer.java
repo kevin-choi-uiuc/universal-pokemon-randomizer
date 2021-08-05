@@ -157,7 +157,11 @@ public class Randomizer {
         }
 
         if (settings.isStandardizeEXPCurves()) {
-            romHandler.standardizeEXPCurves();
+            if (settings.isEveryLevelEvolution()) {
+                romHandler.standardizeEXPCurvesAll();
+            } else {
+                romHandler.standardizeEXPCurves();
+            }
         }
         
         if (settings.isUpdateBaseStats()) {
@@ -206,14 +210,18 @@ public class Randomizer {
             }
         }
 
-        // Trade evolutions removal
-        if (settings.isChangeImpossibleEvolutions()) {
-            romHandler.removeTradeEvolutions(!(settings.getMovesetsMod() == Settings.MovesetsMod.UNCHANGED));
-        }
+        if (settings.isEveryLevelEvolution()) {
+            romHandler.everyLevelEvolution();
+        } else {
+            // Trade evolutions removal
+            if (settings.isChangeImpossibleEvolutions()) {
+                romHandler.removeTradeEvolutions(!(settings.getMovesetsMod() == Settings.MovesetsMod.UNCHANGED));
+            }
 
-        // Easier evolutions
-        if (settings.isMakeEvolutionsEasier()) {
-            romHandler.condenseLevelEvolutions(40, 30);
+            // Easier evolutions
+            if (settings.isMakeEvolutionsEasier()) {
+                romHandler.condenseLevelEvolutions(40, 30);
+            }
         }
 
         // Starter Pokemon
@@ -642,9 +650,16 @@ public class Randomizer {
 
     private void maybeChangeEvolutions(final PrintStream log, final RomHandler romHandler) {
         if (settings.getEvolutionsMod() == Settings.EvolutionsMod.RANDOM) {
-            romHandler.randomizeEvolutions(settings.isEvosSimilarStrength(), settings.isEvosSameTyping(),
-                    settings.isEvosMaxThreeStages(), settings.isEvosForceChange(), settings.isEvosNoConverge(), 
-                    settings.isEvosForceGrowth());
+            if (settings.isEveryLevelEvolution()) {
+                romHandler.randomizeEvolutionsAll(settings.isEvosSimilarStrength(), settings.isEvosSameTyping(),
+                        settings.isEvosMaxThreeStages(), settings.isEvosForceChange(), settings.isEvosNoConverge(),
+                        settings.isEvosForceGrowth());
+                return;
+            } else {
+                romHandler.randomizeEvolutions(settings.isEvosSimilarStrength(), settings.isEvosSameTyping(),
+                        settings.isEvosMaxThreeStages(), settings.isEvosForceChange(), settings.isEvosNoConverge(),
+                        settings.isEvosForceGrowth());
+            }
 
             log.println("<h2>포켓몬 진화</h2>\n<ul>");
             List<Pokemon> allPokes = romHandler.getPokemon();

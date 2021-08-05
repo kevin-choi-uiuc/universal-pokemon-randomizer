@@ -395,10 +395,19 @@ public interface RomHandler {
     public void randomizeEvolutions(boolean similarStrength, boolean sameType, boolean limitToThreeStages,
             boolean forceChange, boolean noConverge, boolean forceGrowth);
 
+    // 1.8.0.2
+    public void everyLevelEvolution();
+
+    public void randomizeEvolutionsAll(boolean similarStrength, boolean sameType, boolean limitToThreeStages,
+                                    boolean forceChange, boolean noConverge, boolean forceGrowth);
+
     // stats stuff
     public void minimumCatchRate(int rateNonLegendary, int rateLegendary);
 
     public void standardizeEXPCurves();
+
+    // 1.8.0.2
+    public void standardizeEXPCurvesAll();
 
     // (Mostly) unchanging lists of moves
     public List<Integer> getGameBreakingMoves();

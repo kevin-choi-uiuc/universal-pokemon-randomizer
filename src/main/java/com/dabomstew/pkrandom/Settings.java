@@ -60,6 +60,9 @@ public class Settings {
 
     private boolean changeImpossibleEvolutions;
     private boolean makeEvolutionsEasier;
+    // 1.8.0.2
+    private boolean makeEveryLevelEvolution;
+
     private boolean raceMode;
     private boolean blockBrokenMoves;
     private boolean limitPokemon;
@@ -264,7 +267,7 @@ public class Settings {
 
         // 0: general options #1 + trainer/class names
         out.write(makeByteSelected(changeImpossibleEvolutions, updateMoves, updateMovesLegacy, randomizeTrainerNames,
-                randomizeTrainerClassNames, makeEvolutionsEasier));
+                randomizeTrainerClassNames, makeEvolutionsEasier, makeEveryLevelEvolution));
 
         // 1: pokemon base stats (see byte 36 for additional options)
         out.write(makeByteSelected(baseStatsFollowEvolutions, baseStatisticsMod == BaseStatisticsMod.RANDOM_WITHIN_BST,
@@ -443,6 +446,8 @@ public class Settings {
         settings.setRandomizeTrainerNames(restoreState(data[0], 3));
         settings.setRandomizeTrainerClassNames(restoreState(data[0], 4));
         settings.setMakeEvolutionsEasier(restoreState(data[0], 5));
+        // 1.8.0.2
+        settings.setMakeEveryLevelEvolution(restoreState(data[0], 6));
 
         settings.setBaseStatisticsMod(restoreEnum(BaseStatisticsMod.class, data[1], 3, // UNCHANGED
                 2, // SHUFFLE
@@ -823,6 +828,16 @@ public class Settings {
 
     public Settings setMakeEvolutionsEasier(boolean makeEvolutionsEasier) {
         this.makeEvolutionsEasier = makeEvolutionsEasier;
+        return this;
+    }
+
+    // 1.8.0.2
+    public boolean isEveryLevelEvolution() {
+        return makeEveryLevelEvolution;
+    }
+
+    public Settings setMakeEveryLevelEvolution(boolean makeEveryLevelEvolution) {
+        this.makeEveryLevelEvolution = makeEveryLevelEvolution;
         return this;
     }
 
