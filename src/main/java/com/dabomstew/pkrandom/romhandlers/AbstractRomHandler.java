@@ -2716,28 +2716,60 @@ public abstract class AbstractRomHandler implements RomHandler {
     @Override
     public void everyLevelEvolution() {
         List<Pokemon> allPokemon = this.getPokemon();
-        Set<Evolution> changedEvos = new TreeSet<Evolution>();
-        // search for level evolutions
+        Set<Pokemon> basePk = new TreeSet<Pokemon>();
+        int maxEvos = 0;
+        // search for non-level evolutions
         for (Pokemon pk : allPokemon) {
             if (pk != null) {
+                // add base pokemons to build a evolutions table
+                if (pk.evolutionsTo.size() == 0 && pk.evolutionsFrom.size() != 0) {
+                    basePk.add(pk);
+                    Pokemon cur = pk;
+                    int curEvos = 0;
+                    while (cur != null) {
+                        curEvos += 1;
+                        maxEvos = java.lang.Math.max(maxEvos, curEvos);
+                        if (cur.evolutionsFrom.size() == 0 || cur.evolutionsFrom.get(0).to == cur) {
+                            break;
+                        }
+                        cur = cur.evolutionsFrom.get(0).to;
+                    }
+                }
+                // change every non-level up evolutions to level up, and set level requirements to 1
                 for (Evolution checkEvo : pk.evolutionsFrom) {
                     if (checkEvo.type != EvolutionType.LEVEL) {
                         checkEvo.type = EvolutionType.LEVEL;
                     }
                     if (checkEvo.extraInfo > 1) {
                         checkEvo.extraInfo = 1;
-                        changedEvos.add(checkEvo);
                     }
                 }
             }
         }
         // Log changes now that we're done (to avoid repeats)
-        log("<H2>1렙 진화</h2><ul>");
-        for (Evolution evol : changedEvos) {
-            log(String.format("<li><strong>%s</strong> 은(는) 이제 <strong>%s</strong> (으)로 <strong>%d</strong>렙 진화</li>", evol.from.name, evol.to.name,
-                    evol.extraInfo));
+        log("<H2>1렙 진화표</h2><ul>");
+        log("<table class=\"pk-table\">");
+        String tableRow;
+        int i = 0;
+        for (Pokemon pk : basePk) {
+            tableRow = (i & 1) == 0 ? "<tr>" : "<tr class=\"alt\">";
+            int tbNum = 0;
+            tableRow += "<td>" + (i+1) + "</td>";
+            while (pk != null) {
+                tableRow += "<td>" + pk.name + "</td>";
+                tbNum += 1;
+                if (pk.evolutionsFrom.size() == 0 || pk.evolutionsFrom.get(0).to == pk) {
+                    break;
+                }
+                pk = pk.evolutionsFrom.get(0).to;
+            }
+            for (; tbNum < maxEvos; ++tbNum) {
+                tableRow += "<td></td>";
+            }
+            log(tableRow + "</tr>");
+            i += 1;
         }
-        log("</ul>");
+        log("</table>");
         logBlankLine();
 
     }

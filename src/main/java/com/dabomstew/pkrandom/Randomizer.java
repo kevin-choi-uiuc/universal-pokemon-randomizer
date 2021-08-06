@@ -572,7 +572,7 @@ public class Randomizer {
             log.println("<h2>포켓몬 종족값 & 타입</h2>");
             log.println("<table class=\"pk-table\">");
             if (romHandler instanceof Gen1RomHandler) {
-                log.println("<tr><th>번호</th><th>이름</th><th>타입</th><th>체력</th><th>공격</th><th>방어</th><th>스피드</th><th>특수</th><th>총합</th></tr>");
+                log.println("<tr><th>번호</th><th>이름</th><th>타입</th><th>체력</th><th>공격</th><th>방어</th><th>특수</th><th>스피드</th><th>총합</th></tr>");
                 for (Pokemon pkmn : allPokes) {
                     if (pkmn != null) {
                         String pkmnType1 = pkmn.primaryType == null ? "???" : pkmn.primaryType.toString();
@@ -583,13 +583,13 @@ public class Randomizer {
                             pkmnType2 = String.format("<span class=\"pk-type %s\">%s</span>", pkmnType2.toLowerCase(), pkmnType2);
                         }
                         int total = pkmn.hp + pkmn.attack + pkmn.defense + pkmn.speed + pkmn.special;                        
-                        log.printf("<tr%s><td>%3d</td><td class=\"left\">%s</td><td>%s%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td></tr>",
-                                pkmn.number % 2 == 0 ? " class=\"alt\"" : "", pkmn.number, pkmn.name, pkmnType1, pkmnType2, pkmn.hp, pkmn.attack, pkmn.defense, pkmn.speed, pkmn.special, total);
+                        log.printf("<tr%s><td>%3d</td><td class=\"left\">%s</td><td>%s%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td></td></tr>",
+                                pkmn.number % 2 == 0 ? " class=\"alt\"" : "", pkmn.number, pkmn.name, pkmnType1, pkmnType2, pkmn.hp, pkmn.attack, pkmn.defense, pkmn.special, pkmn.speed, total);
                     }
 
                 }
             } else {
-                log.print("<tr><th>번호</th><th>이름</th><th>타입</th><th>체력</th><th>공격</th><th>방어</th><th>스피드</th><th>특수공격</th><th>특수방어</th><th>총합</th>");
+                log.print("<tr><th>번호</th><th>이름</th><th>타입</th><th>HP</th><th>공격</th><th>방어</th><th>특공</th><th>특방</th><th>스피드</th><th>3대측정</th><th>총합</th>");
                 int abils = romHandler.abilitiesPerPokemon();
                 for (int i = 0; i < abils; i++) {
                     log.printf("<th>특성%d</th>", (i + 1));
@@ -606,8 +606,9 @@ public class Randomizer {
                             pkmnType2 = String.format("<span class=\"pk-type %s\">%s</span>", pkmnType2.toLowerCase(), pkmnType2);
                         }
                         int total = pkmn.hp + pkmn.attack + pkmn.defense + pkmn.speed + pkmn.spatk + pkmn.spdef;
-                        log.printf("<tr%s><td>%3d</td><td class=\"left\">%s</td><td>%s%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td>",
-                                pkmn.number % 2 == 0 ? " class=\"alt\"" : "", pkmn.number, pkmn.name, pkmnType1, pkmnType2, pkmn.hp, pkmn.attack, pkmn.defense, pkmn.speed, pkmn.spatk, pkmn.spdef, total);
+                        int triVal = pkmn.hp + pkmn.defense + pkmn.spdef;
+                        log.printf("<tr%s><td>%3d</td><td class=\"left\">%s</td><td>%s%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td><strong>%d</strong></td><td>%d</td>",
+                                pkmn.number % 2 == 0 ? " class=\"alt\"" : "", pkmn.number, pkmn.name, pkmnType1, pkmnType2, pkmn.hp, pkmn.attack, pkmn.defense, pkmn.spatk, pkmn.spdef, pkmn.speed, triVal, total);
                         if (abils > 0) {
                             log.printf("<td>%s</td><td>%s", romHandler.abilityName(pkmn.ability1),
                                     romHandler.abilityName(pkmn.ability2));

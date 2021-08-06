@@ -326,7 +326,7 @@ public class Settings {
                 wildPokemonRestrictionMod == WildPokemonRestrictionMod.SIMILAR_STRENGTH, randomizeWildPokemonHeldItems,
                 banBadRandomWildPokemonHeldItems, wildPokemonRestrictionMod == WildPokemonRestrictionMod.MATCH_TYPING_DISTRIBUTION,
                 allowLowLevelEvolvedTypes)
-                | ((minimumCatchRateLevel - 1) << 5));
+                | ((minimumCatchRateLevel - 1) << 6));
 
         // 17 static pokemon
         out.write(makeByteSelected(staticPokemonMod == StaticPokemonMod.UNCHANGED,
