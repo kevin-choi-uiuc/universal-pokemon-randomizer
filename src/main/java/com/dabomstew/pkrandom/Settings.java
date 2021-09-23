@@ -533,7 +533,7 @@ public class Settings {
         settings.setRandomizeWildPokemonHeldItems(restoreState(data[16], 3));
         settings.setBanBadRandomWildPokemonHeldItems(restoreState(data[16], 4));
         settings.setAllowLowLevelEvolvedTypes(restoreState(data[16], 6));
-        settings.setMinimumCatchRateLevel(((data[16] & 0x60) >> 5) + 1);
+        settings.setMinimumCatchRateLevel(((data[16] & 0xC0) >> 6) + 1);
 
         settings.setStaticPokemonMod(restoreEnum(StaticPokemonMod.class, data[17], 0, // UNCHANGED
                 1, // RANDOM_MATCHING
