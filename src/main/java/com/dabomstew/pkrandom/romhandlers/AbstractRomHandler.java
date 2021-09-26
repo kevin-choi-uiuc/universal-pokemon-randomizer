@@ -3207,13 +3207,32 @@ public abstract class AbstractRomHandler implements RomHandler {
 
     // 1.8.0.2
     @Override
-    public void standardizeEXPCurvesAll() {
+    public void standardizeEXPCurvesAll(int expCurvesLevel) {
         List<Pokemon> pokes = getPokemon();
         for (Pokemon pkmn : pokes) {
             if (pkmn == null) {
                 continue;
             }
-            pkmn.growthCurve = ExpCurve.MEDIUM_FAST;
+            switch (expCurvesLevel) {
+                case 1:
+                    pkmn.growthCurve = ExpCurve.ERRATIC;
+                    break;
+                case 2:
+                    pkmn.growthCurve = ExpCurve.FAST;
+                    break;
+                case 3:
+                    pkmn.growthCurve = ExpCurve.MEDIUM_FAST;
+                    break;
+                case 4:
+                    pkmn.growthCurve = ExpCurve.MEDIUM_SLOW;
+                    break;
+                case 5:
+                    pkmn.growthCurve = ExpCurve.SLOW;
+                    break;
+                case 6:
+                    pkmn.growthCurve = ExpCurve.FLUCTUATING;
+                    break;
+            }
         }
     }
 

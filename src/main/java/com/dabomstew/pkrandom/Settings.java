@@ -62,6 +62,7 @@ public class Settings {
     private boolean makeEvolutionsEasier;
     // 1.8.0.2
     private boolean makeEveryLevelEvolution;
+    private int expCurvesLevel;
 
     private boolean raceMode;
     private boolean blockBrokenMoves;
@@ -328,10 +329,11 @@ public class Settings {
                 allowLowLevelEvolvedTypes)
                 | ((minimumCatchRateLevel - 1) << 6));
 
-        // 17 static pokemon
+        // 17 static pokemon + 1.8.0.2 EXP Curves rate
         out.write(makeByteSelected(staticPokemonMod == StaticPokemonMod.UNCHANGED,
                 staticPokemonMod == StaticPokemonMod.RANDOM_MATCHING,
-                staticPokemonMod == StaticPokemonMod.COMPLETELY_RANDOM));
+                staticPokemonMod == StaticPokemonMod.COMPLETELY_RANDOM)
+                | ((expCurvesLevel - 1) << 3));
 
         // 18 tm randomization
         // new stuff 162
@@ -539,6 +541,8 @@ public class Settings {
                 1, // RANDOM_MATCHING
                 2 // COMPLETELY_RANDOM
         ));
+        // 1.8.0.2 EXP Curves level
+        settings.setExpCurvesLevel(((data[17] >> 3) & 0x07) + 1);
 
         settings.setTmsMod(restoreEnum(TMsMod.class, data[18], 4, // UNCHANGED
                 3 // RANDOM
@@ -841,6 +845,14 @@ public class Settings {
         return this;
     }
 
+    public Settings setExpCurvesLevel(int expCurvesLevel) {
+        this.expCurvesLevel = expCurvesLevel;
+        return this;
+    }
+
+    public int getExpCurvesLevel() {
+        return expCurvesLevel;
+    }
     public boolean isRaceMode() {
         return raceMode;
     }

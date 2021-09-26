@@ -157,11 +157,7 @@ public class Randomizer {
         }
 
         if (settings.isStandardizeEXPCurves()) {
-            if (settings.isEveryLevelEvolution()) {
-                romHandler.standardizeEXPCurvesAll();
-            } else {
-                romHandler.standardizeEXPCurves();
-            }
+            romHandler.standardizeEXPCurves();
         }
         
         if (settings.isUpdateBaseStats()) {
@@ -211,6 +207,7 @@ public class Randomizer {
         }
 
         if (settings.isEveryLevelEvolution()) {
+            romHandler.standardizeEXPCurvesAll(settings.getExpCurvesLevel());
             romHandler.everyLevelEvolution();
         } else {
             // Trade evolutions removal

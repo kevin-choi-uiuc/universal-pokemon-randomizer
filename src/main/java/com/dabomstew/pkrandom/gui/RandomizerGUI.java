@@ -690,6 +690,8 @@ public class RandomizerGUI extends javax.swing.JFrame {
         // 1.8.0.2
         this.goEveryLevelEvoCheckBox.setEnabled(false);
         this.goEveryLevelEvoCheckBox.setSelected(false);
+        this.expCurvesSlider.setEnabled(false);
+        this.expCurvesSlider.setValue(this.expCurvesSlider.getMinimum());
 
         this.goUpdateMovesLegacyCheckBox.setVisible(true);
         this.pokeLimitCB.setEnabled(false);
@@ -1339,6 +1341,14 @@ public class RandomizerGUI extends javax.swing.JFrame {
             this.goUpdateMovesLegacyCheckBox.setSelected(false);
         }
 
+        // 1.8.0.2
+        if (this.goEveryLevelEvoCheckBox.isSelected()) {
+            this.expCurvesSlider.setEnabled(true);
+        } else {
+            this.expCurvesSlider.setEnabled(false);
+            this.expCurvesSlider.setValue(this.expCurvesSlider.getMinimum());
+        }
+
         this.pokeLimitBtn.setEnabled(this.pokeLimitCB.isSelected());
 
         if (this.spCustomRB.isSelected()) {
@@ -1781,6 +1791,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
 
         // 1.8.0.2
         this.goEveryLevelEvoCheckBox.setSelected(settings.isEveryLevelEvolution());
+        this.expCurvesSlider.setValue(settings.getExpCurvesLevel());
 
         this.spCustomRB.setSelected(settings.getStartersMod() == Settings.StartersMod.CUSTOM);
         this.spRandomRB.setSelected(settings.getStartersMod() == Settings.StartersMod.COMPLETELY_RANDOM);
@@ -1956,6 +1967,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
         settings.setMakeEvolutionsEasier(goCondenseEvosCheckBox.isSelected());
         // 1.8.0.2
         settings.setMakeEveryLevelEvolution(goEveryLevelEvoCheckBox.isSelected());
+        settings.setExpCurvesLevel(expCurvesSlider.getValue());
 
         settings.setStartersMod(spUnchangedRB.isSelected(), spCustomRB.isSelected(), spRandomRB.isSelected(),
                 spRandom1or2EvosRB.isSelected(), spRandom2EvosRB.isSelected());
@@ -2808,6 +2820,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
         goCondenseEvosCheckBox = new javax.swing.JCheckBox();
         // 1.8.0.2
         goEveryLevelEvoCheckBox = new javax.swing.JCheckBox();
+        expCurvesSlider = new javax.swing.JSlider();
         peNoConvergeCB = new javax.swing.JCheckBox();
         peForceGrowthCB = new javax.swing.JCheckBox();
         startersInnerPanel = new javax.swing.JPanel();
@@ -3149,10 +3162,12 @@ public class RandomizerGUI extends javax.swing.JFrame {
                 .addGroup(pokemonTypesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pokemonTypesPanelLayout.createSequentialGroup()
                         .addComponent(ptUnchangedRB)
-                        .addGap(242, 242, 242)
-                        .addComponent(ptTypesRandomizeFirstCB))
-                    .addComponent(ptRandomFollowEvosRB)
-                    .addComponent(ptRandomTotalRB))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ptRandomFollowEvosRB)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ptRandomTotalRB)
+                        .addGap(64, 64, 64)
+                        .addComponent(ptTypesRandomizeFirstCB)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pokemonTypesPanelLayout.setVerticalGroup(
@@ -3161,11 +3176,11 @@ public class RandomizerGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pokemonTypesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ptUnchangedRB)
-                    .addComponent(ptTypesRandomizeFirstCB))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ptRandomFollowEvosRB)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ptRandomTotalRB)
+                    .addComponent(ptTypesRandomizeFirstCB)
+                    .addComponent(ptRandomFollowEvosRB)
+                    .addComponent(ptRandomTotalRB))
+//                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+//                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -3414,6 +3429,13 @@ public class RandomizerGUI extends javax.swing.JFrame {
             }
         });
 
+        expCurvesSlider.setMajorTickSpacing(1);
+        expCurvesSlider.setMaximum(6);
+        expCurvesSlider.setMinimum(1);
+        expCurvesSlider.setPaintLabels(true);
+        expCurvesSlider.setToolTipText(bundle.getString("RandomizerGUI.expCurvesSlider.toolTipText")); // NOI18N
+        expCurvesSlider.setValue(3);
+
         peNoConvergeCB.setText(bundle.getString("RandomizerGUI.peNoConvergeCB.text")); // NOI18N
         peNoConvergeCB.setToolTipText(bundle.getString("RandomizerGUI.peNoConvergeCB.toolTipText")); // NOI18N
 
@@ -3444,7 +3466,8 @@ public class RandomizerGUI extends javax.swing.JFrame {
                     .addComponent(goRemoveTradeEvosCheckBox)
                     .addComponent(goCondenseEvosCheckBox)
                     // 1.8.0.2
-                    .addComponent(goEveryLevelEvoCheckBox))
+                    .addComponent(goEveryLevelEvoCheckBox)
+                    .addComponent(expCurvesSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         pokemonEvolutionsPanelLayout.setVerticalGroup(
@@ -3466,8 +3489,11 @@ public class RandomizerGUI extends javax.swing.JFrame {
                 .addGroup(pokemonEvolutionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(peNoConvergeCB)
                     .addComponent(peForceGrowthCB)
-                    // 1.8.0.2
                     .addComponent(goEveryLevelEvoCheckBox))
+                // 1.8.0.2
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pokemonEvolutionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(expCurvesSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -4974,6 +5000,7 @@ public class RandomizerGUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox goCondenseEvosCheckBox;
     // 1.8.0.2
     private javax.swing.JCheckBox goEveryLevelEvoCheckBox;
+    private javax.swing.JSlider expCurvesSlider;
     private javax.swing.JCheckBox goRemoveTradeEvosCheckBox;
     private javax.swing.JCheckBox goUpdateMovesCheckBox;
     private javax.swing.JCheckBox goUpdateMovesLegacyCheckBox;

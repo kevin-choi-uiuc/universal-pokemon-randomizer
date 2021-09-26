@@ -407,7 +407,7 @@ public interface RomHandler {
     public void standardizeEXPCurves();
 
     // 1.8.0.2
-    public void standardizeEXPCurvesAll();
+    public void standardizeEXPCurvesAll(int expCurvesLevel);
 
     // (Mostly) unchanging lists of moves
     public List<Integer> getGameBreakingMoves();
